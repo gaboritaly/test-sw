@@ -47,6 +47,7 @@
         addEventListener('load', async () => {
           let sw = await navigator.serviceWorker.register('./sw1.js');
           console.log(sw);
+           showNotification() 
         });
       }
     </script>
