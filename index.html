@@ -22,7 +22,7 @@
 
        async function unsubscribe() {
         const sw = await navigator.serviceWorker.ready;
-        const subscription = sw.pushManager.getSubscription();
+        const subscription = await sw.pushManager.getSubscription();
         subscription
           .unsubscribe()
           .then(function (successful) {
