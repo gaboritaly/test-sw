@@ -31,10 +31,11 @@
   Notification.requestPermission((result) => {
     if (result === "granted") {
       navigator.serviceWorker.ready.then((registration) => {
-        registration.showNotification("Vibration Sample", {
+        registration.showNotification("Carramba", {
           title:"Titleee",
           body: "Buzz! Buzz!",
           icon: "https://www.utinform.hu/assets/logos/mk-logo.svg",
+          image: "https://www.utinform.hu/assets/logos/mk-logo.svg",
           vibrate: [200, 100, 200, 100, 200, 100, 200],
           tag: "vibration-sample",
         });
