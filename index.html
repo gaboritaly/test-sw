@@ -20,37 +20,29 @@
         console.log(JSON.stringify(push));
       }
 
-      async function unsubscribe() {
-        let sw = await navigator.serviceWorker.ready;
+       async function unsubscribe() {
+        const sw = await navigator.serviceWorker.ready;
+        const subscription = sw.pushManager.getSubscription();
+        subscription
+          .unsubscribe()
+          .then(function (successful) {
+            console.log("unsubscribed");
+          })
+          .catch(function (e) {
+            console.log("Something went wrong");
+          });
         if (sw) {
-          await sw.unregister();
-          }
+         // await sw.unregister();
+        }
       }
 
-      function showNotification() {
-  Notification.requestPermission((result) => {
-    if (result === "granted") {
-      navigator.serviceWorker.ready.then((registration) => {
-        registration.showNotification("Carramba", {
-          title:"Titleee",
-          body: "Buzz! Buzz!",
-          icon: "https://www.utinform.hu/assets/logos/mk-logo.svg",
-          image: "https://www.utinform.hu/assets/logos/mk-logo.svg",
-          vibrate: [200, 100, 200, 100, 200, 100, 200],
-          tag: "vibration-sample",
-        });
-      console.log('Show noti')
-      });
-    }
-  });
-}
+
         
 
       if ('serviceWorker' in navigator) {
         addEventListener('load', async () => {
           let sw = await navigator.serviceWorker.register('./sw1.js');
           console.log(sw);
-           showNotification() 
         });
       }
     </script>
