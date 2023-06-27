@@ -23,16 +23,17 @@
        async function unsubscribe() {
         const sw = await navigator.serviceWorker.ready;
         const subscription = await sw.pushManager.getSubscription();
-        subscription
-          .unsubscribe()
-          .then(function (successful) {
+        if (subscription) {
+          try {
+            const unsubscribe = await subscription.unsubscribe();
             console.log("unsubscribed");
-          })
-          .catch(function (e) {
-            console.log("Something went wrong");
-          });
+          } catch (error) {
+            console.log("Something went wrong", error);
+          }
+        }
+
         if (sw) {
-         // await sw.unregister();
+          // await sw.unregister();
         }
       }
 
