@@ -40,10 +40,14 @@
 
         
 
-      if ('serviceWorker' in navigator) {
-        addEventListener('load', async () => {
-          let sw = await navigator.serviceWorker.register('./sw1.js');
-          console.log(sw);
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", async () => {
+          try {
+            let sw = await navigator.serviceWorker.register("./sw1.js");
+            console.log("Service worker registered 😋", sw);
+          } catch (error) {
+            console.log(error);
+          }
         });
       }
     </script>
