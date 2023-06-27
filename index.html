@@ -32,11 +32,13 @@
     if (result === "granted") {
       navigator.serviceWorker.ready.then((registration) => {
         registration.showNotification("Vibration Sample", {
+          title:"EZ AAAZZZZZ',
           body: "Buzz! Buzz!",
           icon: "https://www.utinform.hu/assets/logos/mk-logo.svg",
           vibrate: [200, 100, 200, 100, 200, 100, 200],
           tag: "vibration-sample",
         });
+      console.log('Show noti')
       });
     }
   });
