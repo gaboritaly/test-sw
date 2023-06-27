@@ -37,14 +37,14 @@
         }
       }
 
-    navigator.permissions.query({ name: "push" }).then(function (status) {
+    /* navigator.permissions.query({ name: "push" }).then(function (status) {
         // Initial permission status is `status.state`
 
         status.onchange = function () {
           // Status changed to `this.state`
           console.log("Status changed:: ", status);
         };
-      });
+      }); */
         
 
       if ("serviceWorker" in navigator) {
