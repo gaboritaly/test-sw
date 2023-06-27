@@ -5,6 +5,6 @@
 
 self.addEventListener('push', (event) => {
   event.waitUntil(
-    self.registration.showNotification('Útinform', event.data)
+    self.registration.showNotification('Útinform', JSON.parse(event.data))
   );
 });
