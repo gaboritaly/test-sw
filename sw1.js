@@ -4,8 +4,9 @@
  */
 
 self.addEventListener('push', (event) => {
+  const data = event.data.json();
   console.log(event.data)
   event.waitUntil(
-    self.registration.showNotification('Útinform', JSON.parse(event.data))
+    self.registration.showNotification(data.title, data.options )
   );
 });
