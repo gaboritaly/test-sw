@@ -5,9 +5,7 @@
 
 self.addEventListener('push', (event) => {
   event.waitUntil(
-    // Show a notification with title 'ServiceWorker Cookbook' and use the payload
-    // as the body.
     console.log(event.data)
-    self.registration.showNotification('ServiceWorker Cookbook', event.data)
+    self.registration.showNotification('Útinform', event.data)
   );
 });
