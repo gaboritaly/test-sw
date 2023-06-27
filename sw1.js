@@ -5,7 +5,6 @@
 
 self.addEventListener('push', (event) => {
   event.waitUntil(
-    console.log(event.data)
     self.registration.showNotification('Útinform', event.data)
   );
 });
